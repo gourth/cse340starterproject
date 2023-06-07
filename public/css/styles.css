@@ -4,3 +4,44 @@
 *:after {
   box-sizing: border-box;
 }
+
+#top-header {
+  font-size: 24px;
+}
+
+#tools {
+  font-size: 16px;
+  margin-left: 1000px;
+  
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #151515;
+  overflow: hidden;
+  
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 50px;
+  padding-left: 50px;
+}
+
+nav ul li:last-child {
+  margin-right: 0; /* Remove margin from the last list item */
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #eae4e4;
+}
+
+nav ul li a:hover {
+  background-color: #a86161;
+}
+
