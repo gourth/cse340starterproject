@@ -15,6 +15,7 @@
   
 }
 
+/* NAV BAR */
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -31,7 +32,7 @@ nav ul li {
 }
 
 nav ul li:last-child {
-  margin-right: 0; /* Remove margin from the last list item */
+  margin-right: 0;
 }
 
 nav ul li a {
@@ -42,6 +43,20 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #a86161;
+  background-color: #0085CA;
 }
 
+/* CREATE WRAPPER  */
+#wrapper {
+  width: 1000px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  background-color: white; 
+  border: 5px solid #0085CA;
+  border-radius: 20px;
+}
+
+body {
+  background-image: url(../images/site/checkerboard.jpg);
+  
+}
