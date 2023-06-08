@@ -11,7 +11,9 @@
 
 #tools {
   font-size: 16px;
-  margin-left: 1000px;
+  margin-left: 850px;
+  margin-top: -20px;
+  padding: 10px;
   
 }
 
@@ -57,6 +59,34 @@ nav ul li a:hover {
 }
 
 body {
-  background-image: url(../images/site/checkerboard.jpg);
+  background-image: url(../images/site/small_check.jpg);
+  
+}
+
+.delorean {
+  margin-left: 200px;
+}
+
+.inner-box {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: rgba(240, 240, 240, 0.7);
+  position: relative;
+  margin-left: 100px;
+  margin-top: -250px;
+}
+
+h2, h3 {
+  color: #0085CA;
+}
+
+.own {
+  display: block;
+  width: 150px; 
+  height: auto;
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: -19px;
   
 }
