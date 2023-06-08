@@ -56,6 +56,9 @@ nav ul li a:hover {
   background-color: white; 
   border: 5px solid #0085CA;
   border-radius: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -89,4 +92,37 @@ h2, h3 {
   margin-right: auto; 
   margin-top: -19px;
   
+}
+
+.container {
+  display: flex;
+}
+
+.left, .right {
+  flex: 1;
+  padding: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  padding-right: 20px;
+  
+  
+}
+
+
+ .image-container {
+  position: absolute;
+  top: 65%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  
+} 
+
+
+
+
+footer {
+  margin-top: auto;
 }
