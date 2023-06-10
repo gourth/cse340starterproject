@@ -4,7 +4,117 @@
 *:after {
   box-sizing: border-box;
 }
+/******* Mobile Screen ***************/
+#top-header {
+  font-size: 18px;
+}
 
+#tools {
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: -10px;
+  padding: 5px;
+}
+
+/* NAV BAR */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #151515;
+  overflow: hidden;
+}
+
+nav ul li {
+  display: block;
+  margin-right: 0;
+  padding-left: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #eae4e4;
+}
+
+nav ul li a:hover {
+  background-color: #0085CA;
+}
+
+
+body {
+  /* Styles for mobile devices */
+  background-image: none;
+}
+
+.delorean {
+  margin-left: 10px;
+}
+
+.inner-box {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  background-color: rgba(240, 240, 240, 0.7);
+  position: relative;
+  margin-left: 20px;
+  margin-top: -200px;
+}
+
+h2, h3 {
+  color: #0085CA;
+}
+
+.own {
+  display: block;
+  width: 100px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10px;
+}
+
+.container {
+  display: block;
+}
+
+.left, .right {
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.image-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+}
+
+.review-container {
+  margin-left: 20px;
+  margin-top: -20px;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/******* Larger Screen ***************/
+@media (min-width: 768px) {
 #top-header {
   font-size: 24px;
 }
@@ -49,22 +159,30 @@ nav ul li a:hover {
 }
 
 /* CREATE WRAPPER  */
-#wrapper {
-  width: 1000px; 
-  margin: 0 auto; 
-  padding: 20px; 
-  background-color: white; 
-  border: 5px solid #0085CA;
-  border-radius: 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+  #wrapper {
+    width: 1000px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    background-color: white; 
+    border: 5px solid #0085CA;
+    border-radius: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-body {
+/* body {
   background-image: url(../images/site/small_check.jpg);
   
-}
+} */
+
+
+  body {
+    /* Styles for larger devices */
+    background-image: url(../images/site/small_check.jpg);
+    background-size: cover;
+    background-position: center;
+  }
 
 .delorean {
   margin-left: 200px;
@@ -120,9 +238,16 @@ h2, h3 {
   
 } 
 
+.review-container {
+  margin-left: 500px;
+  margin-top: -40px;
+}
 
-
+li {
+  padding-bottom: 15px;
+}
 
 footer {
   margin-top: auto;
+}
 }
