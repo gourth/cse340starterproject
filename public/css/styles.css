@@ -83,7 +83,7 @@ h2, h3 {
   font-weight: bold;
   font-size: 24px;
   text-align: left;
-  margin-top: 40px;
+  margin-top: 70px;
 }
 
 .left {
@@ -97,11 +97,32 @@ h2, h3 {
 
 .image-container {
   margin-top: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  
 }
+
+.image-box {
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  bottom: -25px;
+  left: -55px;
+  width: 100%;
+  color: darkblue;
+  padding: 8px;
+  text-align: center;
+  font-size: 18px;
+}
+
+
 
 .review-container {
   position: absolute;
-  margin-top: -300px;
+  margin-top: -450px;
   
 }
 
@@ -111,6 +132,42 @@ ul {
 }
 li {
   padding-bottom: 15px;
+}
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  background-color: #0085CA;
+  border: 1px solid #0085CA;
+  padding: 20px;
+  align-content: center;
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: #0085CA;
+  border: 1px solid #0085CA;
+  padding: 20px;
+  align-content: center;
+}
+
+.box3 {
+  width: 100px;
+  height: 100px;
+  background-color: #0085CA;
+  border: 1px solid #0085CA;
+  padding: 20px;
+  align-content: center;
+}
+
+.box4 {
+  width: 100px;
+  height: 100px;
+  background-color: #0085CA;
+  border: 1px solid #0085CA;
+  padding: 20px;
+  align-content: center;
 }
 
 footer {
@@ -225,6 +282,8 @@ footer {
   .right {
     text-align: right;
     margin-right: 80px;
+    
+    
   }
 
   .left {
