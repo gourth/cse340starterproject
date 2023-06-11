@@ -287,20 +287,34 @@ footer {
   }
 
   .left {
-    margin-top: 40px;
+    margin-top: 70px;
     text-align: left;
   }
 
   .image-container {
     position: absolute;
-    top: 65%;
-    left: 35%;
+    top: 52%;
+    left: 27%;
     transform: translate(-50%, -50%);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-gap: 15px;
+    
     
   } 
+
+  .caption {
+    position: absolute;
+    bottom: -25px;
+    left: -55px;
+    width: 200px; 
+    color: darkblue;
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  
 
   .review-container {
     margin-left: 500px;
