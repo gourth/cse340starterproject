@@ -294,7 +294,7 @@ footer {
   .image-container {
     position: absolute;
     top: 52%;
-    left: 27%;
+    left: 33%;
     transform: translate(-50%, -50%);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -306,7 +306,7 @@ footer {
   .caption {
     position: absolute;
     bottom: -25px;
-    left: -55px;
+    left: -50px;
     width: 200px; 
     color: darkblue;
     padding: 8px;
