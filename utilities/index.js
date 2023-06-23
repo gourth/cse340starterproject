@@ -66,7 +66,7 @@ Util.getInventoryId = async function(data) {
   let grid
   if(data.length > 0){
     //grid += '<h1>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model +'</h1>' 
-    grid = '<img src="' + data[0].inv_img
+    grid = '<img src="' + data[0].inv_image
     +'" alt="Image of '+ data[0].inv_make + ' ' + data[0].inv_model 
     +' on CSE Motors" />'
     grid += '<h2>' + data[0].inv_make + ' ' + data[0].inv_model + ' ' + 'Details' + '</h2>'
