@@ -58,11 +58,23 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+* Build the detailed inventory view HTML
+* ************************************ */
+
 Util.getInventoryId = async function(data) {
   let grid
   if(data.length > 0){
     //grid += '<h1>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model +'</h1>' 
-    grid = '<p> test </p>'
+    grid = '<img src="' + data[0].inv_img
+    +'" alt="Image of '+ data[0].inv_make + ' ' + data[0].inv_model 
+    +' on CSE Motors" />'
+    grid += '<h2>' + data[0].inv_make + ' ' + data[0].inv_model + ' ' + 'Details' + '</h2>'
+    grid += '<h2>' + 'Price:' + ' ' + '<span>$' 
+    + new Intl.NumberFormat('en-US').format(data[0].inv_price) + '</span>' + '</h2>'
+    grid += '<h2>' + 'Description:' + ' ' + data[0].inv_description + '</h2>'
+    grid += '<h2>' + 'Color:' + ' ' + data[0].inv_color + '</h2>'
+    grid += '<h2>' + 'Miles:' + ' ' + new Intl.NumberFormat('en-US').format(data[0].inv_miles) + '</h2>'
   }
   return grid
 }
