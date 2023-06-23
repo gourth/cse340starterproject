@@ -58,6 +58,19 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+Util.getInventoryId = async function(data) {
+  let grid
+  if(data.length > 0){
+    //grid += '<h1>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model +'</h1>' 
+    grid = '<p> test </p>'
+  }
+  return grid
+}
+
+
+
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
