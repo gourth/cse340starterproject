@@ -170,6 +170,56 @@ li {
   align-content: center;
 }
 
+.describe {
+  margin: 20px;
+  color: black;
+
+}
+
+.deets {
+  margin: 20px;
+  font-size: 25px;
+  color: black;
+}
+
+.price {
+  margin: 20px;
+  font-size: 25px;
+  color: black;
+  background-color: lightgray;
+
+}
+
+
+.color {
+  margin: 20px;
+  font-size: 25px;
+  color: black;
+  background-color: lightgray;
+}
+
+.miles {
+  margin: 20px;
+  font-size: 25px;
+  color: black;
+}
+
+#inv-display {
+  list-style-type: none;
+  
+}
+
+
+#border {
+  border: 2px solid #000; 
+  box-sizing: border-box;
+  
+}
+
+.namePrice {
+  text-align: center;
+}
+
 footer {
   margin-top: auto;
 }
@@ -323,6 +373,83 @@ footer {
 
   li {
     padding-bottom: 15px;
+  }
+
+/* ADD INVENTORY DETAILS */
+
+
+  .description-container {
+    position: absolute;
+    top: 250px;
+    right: -600px;
+    padding: 20px;
+    
+    
+  }
+  .description-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 20px;
+    
+  }
+  .describe {
+    word-wrap: normal; 
+    color: black;
+    margin: 15px;
+    
+    
+    
+  }
+
+  .deets {
+    margin: 15px;
+    font-size: 25px;
+  }
+
+  .price {
+    margin: 15px;
+    font-size: 25px;
+  
+  }
+  
+
+  .color {
+    margin: 15px;
+    font-size: 25px;
+  }
+
+  .miles {
+    margin: 15px;
+    font-size: 25px;
+  }
+  
+  #inv-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 10px; 
+    height: 400px;
+    list-style-type: none;
+    
+  }
+
+  #inv-display img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover; 
+    
+  }
+
+  #border {
+    border: 2px solid #000; 
+    box-sizing: border-box;
+    
+  }
+
+  .namePrice {
+    text-align: center;
   }
 
   footer {
