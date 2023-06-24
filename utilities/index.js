@@ -66,10 +66,10 @@ Util.getInventoryId = async function(data) {
   let grid
   if(data.length > 0){
     //grid += '<h1>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model +'</h1>' 
-    grid = '<img src="' + data[0].inv_image
+    grid = '<div class="description-container">'
+    grid += '<img src="' + data[0].inv_image
     +'" alt="Image of '+ data[0].inv_make + ' ' + data[0].inv_model 
     +' on CSE Motors" />'
-    grid += '<div class="description-container">'
     grid += '<div class="description-column">'
     grid += '<h2 class="deets">' + data[0].inv_make + ' ' + data[0].inv_model + ' ' + 'Details' + '</h2>'
     grid += '<h2 class="price">' + 'Price:' + ' ' + '<span>$' 
@@ -77,8 +77,8 @@ Util.getInventoryId = async function(data) {
     grid += '<h2 class="describe">' + 'Description:' + ' ' + data[0].inv_description + '</h2>'
     grid += '<h2 class="color">' + 'Color:' + ' ' + data[0].inv_color + '</h2>'
     grid += '<h2 class="miles">' + 'Miles:' + ' ' + new Intl.NumberFormat('en-US').format(data[0].inv_miles) + '</h2>'
-    '</div>'
-    '</div>'
+    grid += '</div>'
+    grid += '</div>'
   }
   return grid
 }

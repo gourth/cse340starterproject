@@ -12,7 +12,7 @@ const app = express()
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities")
-
+const errorRoute = require('./routes/intError');
 
 /* ***********************
  * View Engine and Templates
@@ -21,11 +21,15 @@ app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 /* ***********************
  * Routes
  *************************/
 app.use(require("./routes/static"))
+
 
 // Index route
 // app.get("/", function(req,res){
@@ -35,6 +39,9 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 
 // Inventory routes
 app.use("/inv", inventoryRoute)
+
+// Define the error route handler
+app.use('/trigger-error', errorRoute);
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
@@ -55,6 +62,8 @@ app.use(async (err, req, res, next) => {
     nav
   })
 })
+
+
 
 
 /* ***********************
