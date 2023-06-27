@@ -15,6 +15,7 @@ const utilities = require("./utilities")
 const errorRoute = require('./routes/intError');
 const session = require("express-session")
 const pool = require('./database/')
+const accountRoute = require('./routes/accountRoute')
 
 
 /* ***********************
@@ -64,6 +65,9 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 
 // Inventory routes
 app.use("/inv", inventoryRoute)
+
+// Account routes
+app.use("/account", require("./routes/accountRoute"))
 
 // Define the error route handler
 app.use('/trigger-error', errorRoute);

@@ -83,6 +83,24 @@ Util.getInventoryId = async function(data) {
   return grid
 }
 
+Util.buildLogin = function(){
+  let form = '<form>'
+  form += '<div class="form-container">'
+  form += '<div class="form-row">'
+  form += '<label for="email">Email:</label>'
+  form += '<input type="email" id="email" name="account_email" required>'
+  form += '</div>'
+  form += '<div class="form-row">'
+  form += '<label for="password">Password:</label>'
+  form += '<input type="password" id="password" name="account_password" required>'
+  form += '</div>'
+  form += '<input type="submit" value="Login">'
+  form += '</form>'
+  form += '<p>Don\'t have an account? <a href="#" id="registrationLink">Register here</a>.</p>'
+  form += '</div>'
+  
+return form
+}
 
 
 
