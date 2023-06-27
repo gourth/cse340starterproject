@@ -488,6 +488,9 @@ input[type="password"] {
   border-radius: 3px;
 }
 
+.pass-word {
+  font-style: italic;
+}
   footer {
     margin-top: auto;
   }
