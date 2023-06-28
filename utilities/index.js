@@ -83,56 +83,6 @@ Util.getInventoryId = async function(data) {
   return grid
 }
 
-// BUILD LOGIN FORM
-Util.buildLogin = function(){
-  let form = '<form>'
-  form += '<div class="form-container">'
-  form += '<div class="form-row">'
-  form += '<label for="email">Email:</label>'
-  form += '<input type="email" id="email" name="account_email" required>'
-  form += '</div>'
-  form += '<div class="form-row">'
-  form += '<label for="password">Password:</label>'
-  form += '<input type="password" id="password" name="account_password" required>'
-  form += '</div>'
-  form += '<input type="submit" value="Login">'
-  form += '</form>'
-  form += '<p>Don\'t have an account? <a href="/account/register" id="registrationLink">Register here</a>.</p>'
-  form += '</div>'
-  
-return form
-}
-
-// BUILD REGISTRATION FORM
-Util.buildRegister = function(){
-  let form = '<form>'
-  form += '<div class="form-container">'
-  form += '<div class="form-row">'
-  form += '<label for="fname">First Name:</label>'
-  form += '<input type="text" id="fname" name="account_firstname" required>'
-  form += '</div>'
-  form += '<div class="form-row">'
-  form += '<label for="lname">Last Name:</label>'
-  form += '<input type="text" id="lname" name="account_lastname" required>'
-  form += '</div>'
-  form += '<div class="form-row">'
-  form += '<label for="email">Email:</label>'
-  form += '<input type="email" id="email" name="account_email" required>'
-  form += '</div>'
-  form += '<div class="form-row">'
-  form += '<label for="password">Password:</label>'
-  form += '<input type="password" id="password" name="account_password" required>'
-  form += '<p class="pass-word"> Password must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character.</p>'
-  form += '</div>'
-  form += '<input type="submit" value="Register">'
-  form += '</form>'
-  form += '</div>'
-  
-return form
-}
-
-
-
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
