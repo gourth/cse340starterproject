@@ -260,6 +260,13 @@ input[type="password"] {
   font-style: italic;
 }
 
+input:required:invalid, input:focus:invalid {
+  background-color: rgb(245, 190, 190);
+ }
+
+input:required:valid {
+  background-color: lightgreen;
+ }
 footer {
   margin-top: auto;
 }
@@ -524,6 +531,14 @@ input[type="password"] {
 .pass-word {
   font-style: italic;
 }
+
+input:required:invalid, input:focus:invalid {
+  background-color: rgb(245, 190, 190);
+ }
+
+input:required:valid {
+  background-color: lightgreen;
+ }
   footer {
     margin-top: auto;
   }

@@ -8,15 +8,16 @@
 
 <form>'
   <div class="form-container">
+    <div class="form-row">
+      <label for="accountEmail">Email:</label>
+      <input type="email" id="accountEmail" name="account_email" required>
+      </div>
   <div class="form-row">
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="account_email" required>
-  </div>
-  <div class="form-row">
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="account_password" required>
-  </div>
+    <label for="accountPassword">Password:</label>
+    <input type="password" id="accountPassword" name="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+    <p class="pass-word"> Password must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character.</p>
+    </div>
   <input type="submit" value="Login">
   </form>
-  <p>Don\'t have an account? <a href="/account/register" id="registrationLink">Register here</a>.</p>
+  <p>Don't have an account? <a href="/account/register" id="registrationLink">Register here</a>.</p>
   </div>

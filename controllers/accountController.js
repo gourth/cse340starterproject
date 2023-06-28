@@ -3,7 +3,6 @@ const accountModel = require("../models/account-model")
 
 // Deliver login view
 async function buildLogin(req, res, next) {
-    req.flash("notice", "This is a flash message.")
     let nav = await utilities.getNav()
     res.render("account/login", {
         title: "Login",
