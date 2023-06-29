@@ -11,7 +11,7 @@
   <%  }) %>
    </ul>
   <% } %>
-  
+
 <%- messages() %>
 
 <form action="/account/register" method="post">
@@ -19,15 +19,15 @@
      <p Class="pass-word"> ALL FIELDS ARE REQUIRED </p>
     <div class="form-row">
     <label for="fname">First Name:</label>
-     <input type="text" id="fname" name="account_firstname" required>
+     <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
      </div>
      <div class="form-row">
      <label for="lname">Last Name:</label>
-     <input type="text" id="lname" name="account_lastname" required>
+     <input type="text" name="account_lastname" id="accountLastname" required value="<%= locals.account_lastname %>">
      </div>
      <div class="form-row">
      <label for="accountEmail">Email:</label>
-     <input type="email" id="accountEmail" name="account_email" required>
+     <input type="email" id="accountEmail" name="account_email" required value="<%= locals.account_email %>">
      </div>
      <div class="form-row">
      <label for="accountPassword">Password:</label>

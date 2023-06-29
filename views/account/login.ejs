@@ -4,9 +4,11 @@
       res.redirect('/')
     } %>
 
+
+
 <%- messages() %>
 
-<form>'
+<form id="loginForm" action="/account/login" method="post"></form>
   <div class="form-container">
     <div class="form-row">
       <label for="accountEmail">Email:</label>

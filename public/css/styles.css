@@ -271,6 +271,13 @@ input:required:invalid.show-invalid {
 input:required:valid {
   background-color: lightgreen;
  }
+
+.notice {
+  list-style: none;
+  color: red;
+  text-transform: uppercase;
+}
+
 footer {
   margin-top: auto;
 }
@@ -546,6 +553,12 @@ input:required:invalid.show-invalid {
 input:required:valid {
   background-color: lightgreen;
  }
+
+.notice {
+  list-style: none;
+  color: red;
+  text-transform: uppercase;
+}
   footer {
     margin-top: auto;
   }
