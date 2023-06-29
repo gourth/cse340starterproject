@@ -8,6 +8,7 @@ async function buildLogin(req, res, next) {
     res.render("account/login", {
         title: "Login",
         nav,
+        errors: null,
     })
 }
 
@@ -54,25 +55,24 @@ async function registerAccount(req, res) {
   
     if (regResult) {
       const capitalizedFirstname = account_firstname.charAt(0).toUpperCase() + account_firstname.slice(1).toLowerCase();
-
       req.flash(
         "notice",
         `Congratulations, you\'re registered ${capitalizedFirstname}. Please log in.`
       )
       res.status(201).render("account/login", {
         title: "Login",
-        nav,
+        nav,        
+        errors: null,
       })
     } else {
       req.flash("notice", "Sorry, the registration failed.")
       res.status(501).render("account/register", {
         title: "Registration",
-        nav,
-        
+        nav,        
       })
     }
   }
  
   
 
-module.exports = { buildLogin, buildRegister, registerAccount }
+module.exports = { buildLogin, buildRegister, registerAccount, }

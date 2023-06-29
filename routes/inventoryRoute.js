@@ -10,6 +10,6 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 //Route to get inventory ID
 router.get("/detail/:inventoryId", invController.getInventoryId);
 
-
+// router.get("/"
 
 module.exports = router;

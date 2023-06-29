@@ -19,6 +19,8 @@ router.post(
 // Process the login attempt
 router.post(
     "/login",
+    regValidate.loginRules(),
+    regValidate.checkLogingData,
     (req, res) => {
       res.status(200).send('login process')
     }

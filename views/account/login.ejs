@@ -4,11 +4,17 @@
       res.redirect('/')
     } %>
 
-
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
 
 <%- messages() %>
 
-<form id="loginForm" action="/account/login" method="post"></form>
+<form id="loginForm" action="/account/login" method="post">
   <div class="form-container">
     <div class="form-row">
       <label for="accountEmail">Email:</label>
