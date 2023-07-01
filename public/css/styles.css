@@ -278,6 +278,8 @@ input:required:valid {
   text-transform: uppercase;
 }
 
+
+
 footer {
   margin-top: auto;
 }
@@ -303,6 +305,7 @@ footer {
     padding: 0;
     background-color: #151515;
     overflow: hidden;
+    flex-wrap: wrap;
     
   }
 
@@ -401,7 +404,7 @@ footer {
 
   .image-container {
     position: absolute;
-    top: 52%;
+    top: 56%;
     left: 33%;
     transform: translate(-50%, -50%);
     display: grid;
@@ -543,9 +546,9 @@ input[type="password"] {
   font-style: italic;
 }
 
-input:required:invalid {
+/* input:required:invalid {
   background-color: white; 
-}
+} */
 
 input:required:invalid.show-invalid {
   background-color: rgb(245, 190, 190); 
@@ -558,6 +561,21 @@ input:required:valid {
   list-style: none;
   color: red;
   text-transform: uppercase;
+}
+
+/* ACCOUNT MANAGMENT LINKS */
+
+#newLink {
+  font-size: 25px;
+  margin-left: 70px;
+}
+
+a:hover {
+  color: purple;
+}
+
+#invDescription {
+  height: 100px;
 }
   footer {
     margin-top: auto;

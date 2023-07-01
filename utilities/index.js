@@ -83,6 +83,22 @@ Util.getInventoryId = async function(data) {
   return grid
 }
 
+
+Util.getClassificationList = async function (req, res, next) {
+  let data = await invModel.getClassifications()
+  let list = "<select name='classification_id'>"
+  data.rows.forEach((row) => {
+    list += "<option  value='" + row.classification_id + "' >" 
+    
+    list += row.classification_name 
+      
+    list += "</option>"
+  })
+  list += "</select>"
+  return list
+}
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

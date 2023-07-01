@@ -3,3 +3,26 @@
     <% } else {
       res.redirect('/')
     } %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<%- messages() %>
+
+<form id="addClassification" action="/inv/add-classification" method="post">
+  <div class="form-container">
+    <p Class="pass-word"> FIELD IS REQUIRED </p>
+    <div class="form-row">
+      <label for="classificationName">Classification Name</label>
+      <p class="pass-word"> NAME MUST BE ALPHABETIC CHARACTERS ONLY</p>
+      <input type="text" id="classificationName" name="classification_name" required>
+      </div>
+      <input type="submit" value="Add Classification">
+  </form>
+  
+  </div>
