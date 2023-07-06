@@ -15,7 +15,7 @@
   <%- messages() %>
 
 
-<form id="addInventory" action="/inv/add-inventory" method="post">
+<form id="updateForm" action="/inv/update" method="post">
     <div class="form-container">
       <p Class="pass-word"> ALL FIELDS ARE REQUIRED </p>
       <div class="form-row">
@@ -59,7 +59,14 @@
             <label for="invColor">Color</label>
             <input type="text" id="invColor" name="inv_color" required value="<%= locals.inv_color %>">
             </div>
-        <input type="submit" value="Add Vehicle">
+
+            <input type="hidden" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
+
+        <button disabled type="submit">Update Vehicle</button>
     </form>
     
     </div>
+
+    <script src="../../js/inv-update.js"></script>

@@ -88,7 +88,7 @@ Util.getInventoryId = async function(data) {
 
 Util.getClassificationList = async function (req, res, next) {
   let data = await invModel.getClassifications()
-  let list = "<select name='classification_id'>"
+  let list = "<select id='classificationList' name='classification_id'>"
   data.rows.forEach((row) => {
     list += "<option  value='" + row.classification_id + "' >" 
     

@@ -126,4 +126,91 @@ validate.checkInventory = async (req, res, next) => {
   next()
 }
 
+
+/*  **********************************
+ *  Add Update Inventory Rules
+ * ********************************* */
+
+validate.updateInventoryRules = () => {
+  return [
+    // make is required and must be string
+    body("inv_make")
+      .trim()
+      .isLength({ min: 3 })
+      .withMessage("Please provide a make."), // on error this message is sent.
+
+    // model is required and must be string
+    body("inv_model")
+      .trim()
+      .isLength({ min: 3 })
+      .withMessage("Please provide a model."), // on error this message is sent.
+
+    
+    // description is required and must be string
+    body("inv_description")
+    .trim()
+    .isLength({ min: 2 })
+    .withMessage("Please provide a description."), // on error this message is sent.
+
+    // price is required and must be string
+    body("inv_price")
+    .trim()
+    .isLength({ min: 2 })
+    .isNumeric()
+    .withMessage("Please provide a price."), // on error this message is sent.
+   
+    // year is required and must be string
+    body("inv_year")
+    .trim()
+    .isLength({ min: 4, max: 4 })
+    .isNumeric()
+    .withMessage("Please provide a year."), // on error this message is sent.
+
+    // miles is required and must be string
+    body("inv_miles")
+    .trim()
+    .isLength({ min: 1})
+    .isNumeric()
+    .withMessage("Please provide miles."), // on error this message is sent.
+
+    // color is required and must be string
+    body("inv_color")
+    .trim()
+    .isLength({ min: 2 })
+    .withMessage("Please provide a color."), // on error this message is sent.
+ ]
+
+}
+
+
+/* ******************************
+ * Check data and return errors or continue updating inventory
+ * ***************************** */
+validate.checkUpdateInventory = async (req, res, next) => {
+  const { inv_make, inv_model, inv_description, inv_price, inv_year, inv_miles, inv_color, inv_id} = req.body
+  let errors = []
+  errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    let list = await utilities.getClassificationList()
+    res.render("inventory/edit-inventory", {
+      errors,
+      title: "Edit Inventory",
+      nav,
+      list,
+      inv_make,
+      inv_model,
+      inv_description,
+      inv_price,
+      inv_year,
+      inv_miles,
+      inv_color,
+      inv_id
+    })
+    return
+  }
+  next()
+}
+
 module.exports = validate

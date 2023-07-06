@@ -278,7 +278,9 @@ input:required:valid {
   text-transform: uppercase;
 }
 
-
+.manage-inventory {
+  margin: 2em;
+}
 
 footer {
   margin-top: auto;
@@ -576,6 +578,10 @@ a:hover {
 
 #invDescription {
   height: 100px;
+}
+
+.manage-inventory {
+  margin: 2em;
 }
   footer {
     margin-top: auto;
