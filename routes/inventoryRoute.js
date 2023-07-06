@@ -53,4 +53,11 @@ regValidate.updateInventoryRules(),
 regValidate.checkUpdateInventory,
 utilities.handleErrors(invController.editInventory))
 
+// Build delete view
+router.get("/delete/:inventory_id", utilities.handleErrors(invController.deleteView))
+
+// Process deleting vehicle
+router.post("/delete",
+utilities.handleErrors(invController.deleteItem))
+
 module.exports = router;
