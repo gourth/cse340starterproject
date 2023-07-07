@@ -3,6 +3,7 @@ const router = new express.Router()
 const accountcontroller = require("../controllers/accountController")
 const utilities = require("../utilities")
 const regValidate = require('../utilities/account-validation')
+const invCont = require("../controllers/invController")
 
 router.get("/register", utilities.handleErrors(accountcontroller.buildRegister))
 
@@ -25,19 +26,26 @@ router.post(
   utilities.handleErrors(accountcontroller.accountLogin)
 )
 
-//Get account view
+// Get account view
 router.get('/', utilities.checkLogin, utilities.handleErrors(accountcontroller.getAccountView))
 
+// Logout
+router.get("/logout", utilities.handleErrors(accountcontroller.logoutUser))
 
 
+// Get account update view
+router.get('/edit/:account_id', utilities.checkLogin, utilities.handleErrors(accountcontroller.buildAccountEdit))
 
-// router.post(
-//     "/login",
-//     regValidate.loginRules(),
-//     regValidate.checkLogingData,
-//     (req, res) => {
-//       res.status(200).send('login process')
-//     }
-//   )
+// Process updating the account info
+router.post("/updateaccount", 
+regValidate.updateAcctRules(), 
+regValidate.checkRegData, 
+utilities.handleErrors(accountcontroller.updateAccount))
+
+// Process updating the password
+router.post("/updatepassword", 
+regValidate.updatePassRules(),
+utilities.handleErrors(accountcontroller.updatePassword))
+
 
 module.exports = router

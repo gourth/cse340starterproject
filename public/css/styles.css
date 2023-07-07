@@ -282,6 +282,14 @@ input:required:valid {
   margin: 2em;
 }
 
+.invmanagementlink {
+  padding-top: 2em;
+}
+
+.updatetext {
+  color: black;
+}
+
 footer {
   margin-top: auto;
 }
@@ -582,6 +590,14 @@ a:hover {
 
 .manage-inventory {
   margin: 2em;
+}
+
+.invmanagementlink {
+  padding-top: 2em;
+}
+
+.updatetext {
+  color: black;
 }
   footer {
     margin-top: auto;

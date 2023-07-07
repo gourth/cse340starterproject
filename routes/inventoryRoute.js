@@ -13,14 +13,15 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:inventoryId", invController.getInventoryId);
 
 // Route to get Account Manamgement view
-router.get("/", invController.getManagement);
+router.get("/", utilities.checkAccountType, invController.getManagement);
 
 // Route to get New Classification view
-router.get("/add-classification", invController.buildClassification);
+router.get("/add-classification", utilities.checkAccountType, invController.buildClassification);
 
 // Process adding new classification
 router.post(
     "/add-classification",
+    utilities.checkAccountType,
     regValidate.classificationRules(),
     regValidate.checkClassification,
     utilities.handleErrors(invController.addClassification)
@@ -28,11 +29,12 @@ router.post(
     
 
 // Route to get New Vehicle view
-router.get("/add-inventory", invController.buildInventory);
+router.get("/add-inventory", utilities.checkAccountType, invController.buildInventory);
 
 // Process adding new inventory
 router.post(
     "/add-inventory",
+    utilities.checkAccountType,
     regValidate.inventoryRules(),
     regValidate.checkInventory,
     utilities.handleErrors(invController.addInventory)
@@ -41,23 +43,26 @@ router.post(
 // Get inventory for AJAX Route
 router.get(
     "/getInventory/:classification_id",
+    utilities.checkAccountType,
     utilities.handleErrors(invController.getInventoryJSON)
 )
 
 // Modify existing vehicle info------CHANGE THIS TO ONLY BUILD THE VIEW
-router.get("/edit/:inventory_id", utilities.handleErrors(invController.buildEditInventoryView))
+router.get("/edit/:inventory_id", utilities.checkAccountType, utilities.handleErrors(invController.buildEditInventoryView))
 
 // Process updating the vehicle info
 router.post("/update", 
+utilities.checkAccountType,
 regValidate.updateInventoryRules(),
 regValidate.checkUpdateInventory,
 utilities.handleErrors(invController.editInventory))
 
 // Build delete view
-router.get("/delete/:inventory_id", utilities.handleErrors(invController.deleteView))
+router.get("/delete/:inventory_id", utilities.checkAccountType, utilities.handleErrors(invController.deleteView))
 
 // Process deleting vehicle
 router.post("/delete",
+utilities.checkAccountType,
 utilities.handleErrors(invController.deleteItem))
 
 module.exports = router;
