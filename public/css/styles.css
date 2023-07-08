@@ -17,6 +17,12 @@
   text-align: right;
 }
 
+a.link-style {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+
 /* NAV BAR */
 nav ul {
   list-style-type: none;
@@ -298,15 +304,25 @@ footer {
 @media (min-width: 768px) {
   #top-header {
     font-size: 24px;
+    font-weight: bold;
+    
+    
   }
 
   #tools {
     font-size: 16px;
     margin-left: 850px;
     margin-top: -20px;
-    padding: 10px;
+    padding: 15px;
     
   }
+
+  a.link-style {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+  }
+  
 
   /* NAV BAR */
   nav ul {
@@ -342,7 +358,7 @@ footer {
 
   /* CREATE WRAPPER  */
     #wrapper {
-      width: 1000px; 
+      width: 1100px; 
       margin: 0 auto; 
       padding: 20px; 
       background-color: white; 
@@ -414,7 +430,7 @@ footer {
 
   .image-container {
     position: absolute;
-    top: 56%;
+    top: 57%;
     left: 33%;
     transform: translate(-50%, -50%);
     display: grid;
