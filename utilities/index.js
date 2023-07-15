@@ -64,7 +64,7 @@ Util.buildClassificationGrid = async function(data){
 * Build the detailed inventory view HTML
 * ************************************ */
 
-Util.getInventoryId = async function(data) {
+Util.getInventoryId = async function(data, upgrade) {
   let grid
   if(data.length > 0){
     //grid += '<h1>' + data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model +'</h1>' 
@@ -79,6 +79,7 @@ Util.getInventoryId = async function(data) {
     grid += '<h2 class="describe">' + 'Description:' + ' ' + data[0].inv_description + '</h2>'
     grid += '<h2 class="color">' + 'Color:' + ' ' + data[0].inv_color + '</h2>'
     grid += '<h2 class="miles">' + 'Miles:' + ' ' + new Intl.NumberFormat('en-US').format(data[0].inv_miles) + '</h2>'
+    grid += upgrade
     grid += '</div>'
     grid += '</div>'
   }
@@ -144,7 +145,62 @@ Util.checkLogin = (req, res, next) => {
     return res.redirect("/account/login")
   }
  }
- 
+
+/* **************************************
+* Build the upgrade view HTML
+* ************************************ */
+Util.buildUpgradeDropdown = async function () {
+  let data = await invModel.getUpgradesByInventoryID()
+  let list = "<select id='upgradeList' name='upgrade_id'>"
+  let select = `<label for="upgrade_id">Upgrades:</label>
+                <select id="upgrade_id" class="class-dropdown p-font" name="upgrade_id" required>`
+
+  if (data.length > 0) {
+    select += `<option value="" disabled selected>Select upgrade</option>`
+
+    for (var i = 0; i < data.length; i++) {
+      // const selected =
+        // upgrade_id && data[i]?.upgrade_id === upgrade_id ? "selected" : ""
+      select += `<option value="${data[i].upgrade_id}" >${data[i].upgrade_name}</option>`
+    }
+  } else {
+    select += `<option value="" disabled selected>No upgrades available </option>`
+  }
+
+  select += `</select>`
+
+  return select
+}
+
+Util.buildUpgradeInfo = async function (data) {
+  let grid = '<div id="info-wrapper" class="info-wrapper">'
+  if (data.length > 0) {
+    grid +=
+      '<img class="individual-image" src="' +
+      data[0].upgrade_image +
+      '" alt="Image of ' +
+      data[0].upgrade_name +
+      '"/>'
+
+    grid += '<div class="details p-font">'
+    grid += "<h2>" + data[0].upgrade_name + " Details:</h2>"
+    grid += "<ul>"
+    grid +=
+      '<li> <span class="boldme">Price:</span> $' +
+      new Intl.NumberFormat("en-US").format(data[0].upgrade_price) +
+      "</li>"
+    grid +=
+      '<li> <span class="boldme">Description:</span> ' +
+      data[0].upgrade_description +
+      "</li>"
+    grid += "</ul></div>"
+  } else {
+    grid +=
+      '<p class="notice">Sorry, no matching upgrade could be found.</p>'
+  }
+  grid += "</div>"
+  return grid
+}
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

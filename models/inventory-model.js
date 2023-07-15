@@ -12,6 +12,10 @@ async function getInventory(){
   return await pool.query("SELECT * FROM public.inventory")
 }
 
+async function getUpgrade(){
+  return await pool.query("SELECT * From public.upgrade")
+}
+
 /* ***************************
  *  Get all inventory items and classification_name by classification_id
  * ************************** */
@@ -36,7 +40,7 @@ async function getInventoryByInventoryId(inv_id) {
       `SELECT * FROM public.inventory WHERE inv_id = $1 `,
       [inv_id]
     )
-    return data.rows[0]
+    return data.rows
   } catch (error) {
     console.error("getinventorybyid error " + error)
   }
@@ -112,4 +116,31 @@ async function deleteItem(inv_id) {
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getInventory, getInventoryByInventoryId, addClassification, addInventory, editInventory, deleteItem};
+// Get upgrade by upgrade ID
+async function getUpgradesByInventoryID() {
+  try {
+    const data = await pool.query(
+      `SELECT * FROM public.upgrade`
+    )
+    return data.rows
+  } catch (error) {
+    console.error("getupgradesbyinventoryid error " + error)
+  }
+}
+
+
+
+
+async function getUpgradeByID(upgrade_id) {
+  try {
+    const data = await pool.query(
+      "SELECT * FROM public.upgrade as u WHERE u.upgrade_id = $1",
+      [upgrade_id]
+    )
+    return data.rows
+  } catch (error) {
+    console.error("inventorymodel/getUpgradeByID error " + error)
+  }
+}
+
+module.exports = {getClassifications, getInventoryByClassificationId, getInventory, getInventoryByInventoryId, addClassification, addInventory, editInventory, deleteItem, getUpgrade, getUpgradesByInventoryID, getUpgradeByID};

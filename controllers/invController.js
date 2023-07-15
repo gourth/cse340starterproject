@@ -24,7 +24,8 @@ invCont.buildByClassificationId = async function (req, res, next) {
 invCont.getInventoryId = async function (req, res, next) {
   const inv_id = req.params.inventoryId
   const data = await invModel.getInventoryByInventoryId(inv_id)
-  const grid = await utilities.getInventoryId(data)
+  const upgrade = await utilities.buildUpgradeDropdown()
+  const grid = await utilities.getInventoryId(data, upgrade)
   let nav = await utilities.getNav()
   const className = data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model
   res.render("./inventory/itemDetail", {
@@ -153,6 +154,16 @@ invCont.getInventoryJSON = async (req, res, next) => {
   }
 }
 
+invCont.getUpgradeJSON = async (req, res, next) => {
+  const upgrade_id = parseInt(req.params.upgrade_id)
+  const invData = await invModel.getUpgradeByID(upgrade_id)
+  if (invData[0].upgrade_id) {
+    return res.json(invData)
+  } else {
+    next(new Error("No data returned"))
+  }
+}
+
 
 // Build edit inventory view
 invCont.buildEditInventoryView = async function (req, res, next) {
@@ -275,5 +286,29 @@ console.log(deleteResult)
     res.redirect(`/delete/${inv_id}`)
   }
   }
+
+  invCont.buildUpgrade = async function (req, res, next) {
+    try {
+      const upgrade_id = req.params.upgrade_id
+      const inv_id = req.params.inv_id
+      const itemData = await invModel.getInventoryByInventoryId(inv_id)
+      const data = await invModel.getUpgradeByID(upgrade_id)
+      const grid= await utilities.buildUpgradeInfo(data)
+      let nav = await utilities.getNav()
+  
+      const upgradeName = data[0].upgrade_name 
+      res.render("./inventory/upgrade", {
+        title: upgradeName,
+        nav,
+        itemData,
+        grid,
+      })
+    } catch (error) {
+      error.status = 500
+      console.error(error.status)
+      next(error)
+    }
+  }
+
 
 module.exports = invCont

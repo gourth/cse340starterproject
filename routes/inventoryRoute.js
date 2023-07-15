@@ -65,4 +65,10 @@ router.post("/delete",
 utilities.checkAccountType,
 utilities.handleErrors(invController.deleteItem))
 
+// Route to build upgrades
+router.get(
+    "/upgrade/:upgrade_id",
+    utilities.handleErrors(invController.getUpgradeJSON)
+)
+
 module.exports = router;
